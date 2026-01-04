@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My ChatGPT</title>
-    <link rel="icon" href="favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="favicon.ico" sizes="32x32">
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
@@ -11,9 +12,11 @@
     <h1 class="title">ChatGPT</h1>
     <div id="chat" class="chat"></div>
     <div class="input-box">
-        <textarea id="input" class="input-box__textarea" placeholder="Type your message..."></textarea>
-        <button onclick="send()" class="input-box__button">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9 16V6.414L5.707 9.707a1 1 0 1 1-1.414-1.414l5-5 .076-.068a1 1 0 0 1 1.338.068l5 5 .068.076a1 1 0 0 1-1.406 1.406l-.076-.068L11 6.414V16a1 1 0 1 1-2 0"/></svg>
+        <textarea id="input" class="input-box__textarea" placeholder="Type your message..." rows="3"></textarea>
+        <button onclick="send()" title="Send" class="input-box__button">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M9 16V6.414L5.707 9.707a1 1 0 1 1-1.414-1.414l5-5 .076-.068a1 1 0 0 1 1.338.068l5 5 .068.076a1 1 0 0 1-1.406 1.406l-.076-.068L11 6.414V16a1 1 0 1 1-2 0"/>
+            </svg>
         </button>
     </div>
 </div>

@@ -1,10 +1,11 @@
+const input = document.getElementById("input");
+const chat = document.getElementById("chat");
+
 async function send() {
-    const input = document.getElementById("input");
-    const chat = document.getElementById("chat");
     const message = input.value.trim();
     if (!message) return;
 
-    chat.innerHTML += `<div class="message"><span class="user">You: </span><br> ${message}</div>`;
+    appendMessage("You", message, "user");
     input.value = "";
 
     try {
@@ -14,11 +15,30 @@ async function send() {
             body: JSON.stringify({message}),
         });
 
-        const data = await res.json();
+        if (!res.ok) {
+            throw new Error("Server error");
+        }
 
-        chat.innerHTML += `<div class="message"><span class="bot">ChatGPT:</span><br> ${data.reply}</div>`;
-        chat.scrollTop = chat.scrollHeight;
+        const data = await res.json();
+        appendMessage("ChatGPT", data.reply, "bot");
     } catch (err) {
-        chat.innerHTML += `<div class="message"><span class="bot">ChatGPT:</span><br> Error connecting to server</div>`;
+        appendMessage("ChatGPT", "Error connecting to server", "error");
     }
 }
+
+function appendMessage(author, text, className) {
+    chat.insertAdjacentHTML("beforeend", `<div class="message">
+            <span class="${className}">${author}:</span><br>
+            ${text}
+        </div>`);
+
+    chat.scrollTop = chat.scrollHeight;
+}
+
+// Enter — to send, Shift+Enter — new string
+input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        send();
+    }
+});

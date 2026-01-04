@@ -3,31 +3,39 @@
     --text-secondary: #676767;
     --text-accent: #0285ff;
     --text-danger: #fa423e;
+
     --bg-primary: #171717;
     --bg-secondary: #212121;
     --bg-tertiary: #303030;
 }
 
-html {
-    font-size: 10px;
+* {
+    box-sizing: border-box;
 }
 
-html,body {
-    display: flex;
-    justify-content: center;
+html {
+    font-size: 10px;
     margin-top: 4rem;
+}
+
+html,
+body {
     background-color: var(--bg-secondary);
-    color: var(--text-primary)
+    color: var(--text-primary);
 }
 
 body {
     font-family: Arial, sans-serif;
     font-size: 1.6rem;
+    margin: 0;
+    padding: 0 1.5rem;
 }
 
 .container {
-    width: 60rem;
-    padding: 2rem;
+    max-width: 60rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.6rem;
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
     background-color: var(--bg-primary);
     border-radius: 1.6rem;
@@ -49,8 +57,8 @@ body {
 }
 
 .user {
-    font-weight: bold;
     color: var(--text-secondary);
+    font-weight: bold;
 }
 
 .bot {
@@ -58,8 +66,8 @@ body {
 }
 
 .error {
-    font-weight: bold;
     color: var(--text-danger);
+    font-weight: bold;
 }
 
 .input-box {
@@ -67,13 +75,13 @@ body {
     align-items: flex-end;
     padding: 1rem;
     background-color: var(--bg-secondary);
-    border-radius: 2.8rem;
+    border-radius: 1.6rem;
     gap: 1rem;
 }
 
 .input-box__textarea {
     flex: 1;
-    height: 60px;
+    height: 6rem;
     padding: 0 1rem;
     background: none;
     border: none;
