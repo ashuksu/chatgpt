@@ -5,7 +5,6 @@ Web client for ChatGPT using the OpenAI API.
 * Backend: Node.js + Express
 * Frontend: HTML/CSS/JS
 
-
 # Setup
 
 1. Copy `.env` and paste your OpenAI API key:
@@ -29,8 +28,7 @@ npm start
 ```
 
 4. Open in a browser:
-http://localhost:3000
-
+   http://localhost:3000
 
 ## Usage
 

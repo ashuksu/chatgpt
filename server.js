@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
-const client = new OpenAI({
+const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
 
@@ -20,17 +20,19 @@ app.post("/api/chat", async (req, res) => {
     try {
         const userMessage = req.body.message;
 
-        const response = await client.chat.completions.create({
-            model: "gpt-4o-mini",
-            messages: [{role: "user", content: userMessage}],
+        const response = await openai.responses.create({
+            model: "gpt-4.1-mini",
+            input: userMessage,
         });
 
-        res.json({
-            reply: response.choices[0].message.content,
+        const text = response.output_text;
+
+        res.json({reply: text});
+    } catch (err) {
+        console.error("❌ OpenAI error:", err);
+        res.status(500).json({
+            reply: "Error: OpenAI request failed. Check server console.",
         });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({error: "Something went wrong"});
     }
 });
 
