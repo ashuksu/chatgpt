@@ -5,7 +5,10 @@ Web client for ChatGPT using the OpenAI API.
 * Backend: Node.js + Express
 * Frontend: HTML/CSS/JS
 
-# Setup
+<img width="300" alt="image" src="https://github.com/user-attachments/assets/9a228739-f44d-4f0f-b5ee-e0d816cb0564" />
+
+
+## Setup
 
 1. Copy `.env` and paste your OpenAI API key:
 
@@ -35,7 +38,7 @@ npm start
 * Enter a message in the text field and click Send.
 * The ChatGPT response will appear in the chat.
 
-# Notes
+## Notes
 
 * This only works with a valid OpenAI API key.
 * Server errors are displayed in the Node.js console.
