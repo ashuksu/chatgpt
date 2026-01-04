@@ -1,59 +1,100 @@
-body {
-    font-family: Arial, sans-serif;
-    background: #f3f4f6;
+:root {
+    --text-primary: #fff;
+    --text-secondary: #676767;
+    --text-accent: #0285ff;
+    --text-danger: #fa423e;
+    --bg-primary: #171717;
+    --bg-secondary: #212121;
+    --bg-tertiary: #303030;
+}
+
+html {
+    font-size: 10px;
+}
+
+html,body {
     display: flex;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 4rem;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary)
 }
 
-.chat-container {
-    width: 600px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+body {
+    font-family: Arial, sans-serif;
+    font-size: 1.6rem;
 }
 
-h1 {
+.container {
+    width: 60rem;
+    padding: 2rem;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+    background-color: var(--bg-primary);
+    border-radius: 1.6rem;
+}
+
+.title {
     text-align: center;
 }
 
-#chat {
-    height: 400px;
+.chat {
+    height: 40rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
     overflow-y: auto;
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin-bottom: 10px;
 }
 
 .message {
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 }
 
 .user {
     font-weight: bold;
+    color: var(--text-secondary);
 }
 
 .bot {
-    color: #2563eb;
+    color: var(--text-accent);
+}
+
+.error {
+    font-weight: bold;
+    color: var(--text-danger);
 }
 
 .input-box {
     display: flex;
-    gap: 10px;
+    align-items: flex-end;
+    padding: 1rem;
+    background-color: var(--bg-secondary);
+    border-radius: 2.8rem;
+    gap: 1rem;
 }
 
-textarea {
+.input-box__textarea {
     flex: 1;
-    resize: none;
     height: 60px;
+    padding: 0 1rem;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text-primary);
+    resize: none;
 }
 
-button {
-    width: 100px;
-    background: #2563eb;
-    color: white;
+.input-box__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.6rem;
+    height: 3.6rem;
+    background-color: var(--text-primary);
     border: none;
-    border-radius: 5px;
+    border-radius: 50%;
     cursor: pointer;
+}
+
+.input-box__button svg {
+    width: 2rem;
+    height: 2rem;
 }

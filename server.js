@@ -21,17 +21,17 @@ app.post("/api/chat", async (req, res) => {
         const userMessage = req.body.message;
 
         const response = await openai.responses.create({
-            model: "gpt-4.1-mini",
+            model: process.env.MODEL,
             input: userMessage,
         });
 
-        const text = response.output_text;
-
-        res.json({reply: text});
+        res.json({
+            reply: response.output_text,
+        });
     } catch (err) {
         console.error("❌ OpenAI error:", err);
         res.status(500).json({
-            reply: "Error: OpenAI request failed. Check server console.",
+            reply: "<span class='error'>Error: </span>OpenAI request failed. Check server console.",
         });
     }
 });
