@@ -39,3 +39,15 @@ npm start
 
 * This only works with a valid OpenAI API key.
 * Server errors are displayed in the Node.js console.
+
+## How to check your OpenAI limit and plan
+
+* This means your API key has reached its request limit.
+* The server caught the error `429` and returned it to the frontend:
+
+```
+{ reply: "Error: OpenAI request failed. Check server console." }
+```
+* Check the Billing API: https://platform.openai.com/account/billing/overview
+* Go to: https://platform.openai.com/account/usage
+* See how many tokens/requests are remaining
