@@ -9,6 +9,7 @@ const __dirname = path.dirname(__filename);
 
 const PORT = process.env.PORT || 3000;
 const MODEL = process.env.MODEL || "gpt-5-nano";
+const MAX_INPUT_CHARS = Number(process.env.MAX_INPUT_CHARS || 500);
 
 const app = express();
 
@@ -28,10 +29,29 @@ app.post("/api/chat", async (req, res) => {
         });
     }
 
+    if (message.length > MAX_INPUT_CHARS) {
+        return res.status(400).json({
+            reply: `<span class='error'>Message too long</span><br>
+                    Max allowed: ${MAX_INPUT_CHARS} characters`,
+        });
+    }
+
     try {
         const response = await openai.responses.create({
             model: MODEL,
-            input: message,
+            text: {
+                format: { type: "text" }
+            },
+            input: [
+                {
+                    role: "system",
+                    content: "Answer briefly and to the point."
+                },
+                {
+                    role: "user",
+                    content: message
+                }
+            ]
         });
 
         res.json({
