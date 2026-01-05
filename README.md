@@ -5,7 +5,8 @@ Web client for ChatGPT using the OpenAI API.
 * Backend: Node.js + Express
 * Frontend: HTML/CSS/JS
 
-<img width="300" alt="image" src="https://github.com/user-attachments/assets/9a228739-f44d-4f0f-b5ee-e0d816cb0564" />
+<img width="300" alt="Screenshot" src="https://github.com/user-attachments/assets/8e04b54e-5108-421f-8d02-e826f0115d3d" />
+
 
 
 ## Setup
