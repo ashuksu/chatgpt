@@ -19,7 +19,7 @@ async function send() {
         return;
     }
 
-    appendMessage("You", message, "user");
+    appendMessage("You", message, "user", "block");
     input.value = "";
     counter.textContent = "0";
 
@@ -42,8 +42,8 @@ async function send() {
     }
 }
 
-function appendMessage(author, text, className) {
-    chat.insertAdjacentHTML("beforeend", `<div class="message">
+function appendMessage(author, text, className, extraClass = "") {
+    chat.insertAdjacentHTML("beforeend", `<div class="message ${extraClass}">
             <span class="${className}">${author}:</span><br>
             ${text}
         </div>`);

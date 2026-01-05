@@ -40,7 +40,7 @@ app.post("/api/chat", async (req, res) => {
         const response = await openai.responses.create({
             model: MODEL,
             text: {
-                format: { type: "text" }
+                format: {type: "text"}
             },
             input: [
                 {
