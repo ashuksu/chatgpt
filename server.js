@@ -18,7 +18,12 @@ const openai = new OpenAI({
 });
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "public")));
+
+app.get("/api/config", (req, res) => {
+    res.json({
+        maxInputChars: MAX_INPUT_CHARS,
+    });
+});
 
 app.post("/api/chat", async (req, res) => {
     const {message} = req.body;
@@ -66,6 +71,9 @@ app.post("/api/chat", async (req, res) => {
     }
 });
 
+app.use(express.static(path.join(__dirname, "public")));
+
 app.listen(PORT, () => {
-    console.log(`✅ Server running at http://localhost:${PORT}`);
+    console.log(`✅  Server running at http://localhost:${PORT}`);
+    console.log(`✏️ Max input chars: ${MAX_INPUT_CHARS}`);
 });

@@ -45,37 +45,6 @@ body {
     text-align: center;
 }
 
-.chat {
-    height: 40rem;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    overflow-y: auto;
-}
-
-.message {
-    margin-bottom: 1rem;
-}
-
-.block {
-    padding: 1.2rem 1.6rem;
-    background-color: var(--bg-tertiary);
-    border-radius: 1.8rem;
-}
-
-.user {
-    color: var(--text-secondary);
-    font-weight: bold;
-}
-
-.bot {
-    color: var(--text-accent);
-}
-
-.error {
-    color: var(--text-danger);
-    font-weight: bold;
-}
-
 .input-box {
     display: flex;
     align-items: flex-end;
@@ -118,4 +87,39 @@ body {
     color: var(--text-secondary);
     text-align: right;
     font-size: 1.2rem;
+}
+
+.counter__char {
+    color: var(--text-primary);
+}
+
+.chat {
+    height: 40rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    overflow-y: auto;
+}
+
+.message {
+    margin-bottom: 1rem;
+}
+
+.block {
+    padding: 1.2rem 1.6rem;
+    background-color: var(--bg-tertiary);
+    border-radius: 1.8rem;
+}
+
+.user {
+    color: var(--text-secondary);
+    font-weight: bold;
+}
+
+.bot {
+    color: var(--text-accent);
+}
+
+.error {
+    color: var(--text-danger);
+    font-weight: bold;
 }

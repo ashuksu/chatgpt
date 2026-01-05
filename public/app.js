@@ -1,13 +1,28 @@
 const input = document.getElementById("input");
 const chat = document.getElementById("chat");
-const counter = document.getElementById("charCount");
+const counterEl = document.getElementById("charCount");
+const limitEl = document.getElementById("charLimit");
 
-const MAX_CHARS = 500;
+let MAX_CHARS = 500;
+limitEl.textContent = MAX_CHARS;
+
+fetch("/api/config")
+    .then(res => {
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        return res.json();
+    })
+    .then(config => {
+        MAX_CHARS = Number(config.maxInputChars);
+        limitEl.textContent = MAX_CHARS;
+    })
+    .catch(err => {
+        console.error("Failed to load config:", err);
+    });
 
 input.addEventListener("input", () => {
     const len = input.value.length;
-    counter.textContent = len;
-    counter.style.color = len > MAX_CHARS ? "red" : "#888";
+    counterEl.textContent = len;
+    counterEl.classList.toggle("error", len > MAX_CHARS);
 });
 
 async function send() {
@@ -21,7 +36,7 @@ async function send() {
 
     appendMessage("You", message, "user", "block");
     input.value = "";
-    counter.textContent = "0";
+    counterEl.textContent = "0";
 
     try {
         const res = await fetch("/api/chat", {
