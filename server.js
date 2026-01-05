@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const PORT = process.env.PORT || 3000;
-const MODEL = process.env.MODEL || "gpt-4.1";
+const MODEL = process.env.MODEL || "gpt-5-nano";
 
 const app = express();
 
