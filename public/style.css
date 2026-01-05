@@ -106,3 +106,10 @@ body {
     width: 2rem;
     height: 2rem;
 }
+
+.counter {
+    margin-top: 0.5rem;
+    text-align: right;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}

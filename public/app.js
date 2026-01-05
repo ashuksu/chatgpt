@@ -1,12 +1,27 @@
 const input = document.getElementById("input");
 const chat = document.getElementById("chat");
+const counter = document.getElementById("charCount");
+
+const MAX_CHARS = 500;
+
+input.addEventListener("input", () => {
+    const len = input.value.length;
+    counter.textContent = len;
+    counter.style.color = len > MAX_CHARS ? "red" : "#888";
+});
 
 async function send() {
     const message = input.value.trim();
     if (!message) return;
 
+    if (message.length > MAX_CHARS) {
+        appendMessage("System", "Message too long", "error");
+        return;
+    }
+
     appendMessage("You", message, "user");
     input.value = "";
+    counter.textContent = "0";
 
     try {
         const res = await fetch("/api/chat", {
@@ -21,6 +36,7 @@ async function send() {
 
         const data = await res.json();
         appendMessage("ChatGPT", data.reply, "bot");
+
     } catch (err) {
         appendMessage("ChatGPT", "Error connecting to server", "error");
     }
